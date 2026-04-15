@@ -91,7 +91,7 @@
 
     <!-- Search Form -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <form action="{{ route('user.permintaan.index') }}" method="GET" class="flex flex-col md:flex-row gap-4 items-center">
+        <form action="{{ route('user.permintaan.riwayat') }}" method="GET" class="flex flex-col md:flex-row gap-4 items-center">
             <div class="relative flex-1 w-full">
                 <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                 <input type="text" name="search" value="{{ request('search') }}" 
@@ -103,7 +103,7 @@
                     Cari
                 </button>
                 @if(request('search'))
-                    <a href="{{ route('user.permintaan.index') }}" class="flex-1 md:flex-none px-4 py-2 border border-gray-200 rounded-lg text-gray-600 text-center hover:bg-gray-50 transition">
+                    <a href="{{ route('user.permintaan.riwayat') }}" class="flex-1 md:flex-none px-4 py-2 border border-gray-200 rounded-lg text-gray-600 text-center hover:bg-gray-50 transition">
                         Reset
                     </a>
                 @endif

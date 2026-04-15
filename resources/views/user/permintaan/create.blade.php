@@ -90,9 +90,9 @@
                                         <option value="">-- Pilih Barang --</option>
                                         @foreach($barangMasuk as $item)
                                             <option value="{{ $item->barang_id }}" 
-                                                    data-kode="{{ addslashes($item->kode_barang) }}"
-                                                    data-nama="{{ addslashes($item->nama_barang) }}"
-                                                    data-satuan="{{ addslashes($item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs')) }}"
+                                                    data-kode="{{ $item->kode_barang }}"
+                                                    data-nama="{{ $item->nama_barang }}"
+                                                    data-satuan="{{ $item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs') }}"
                                                     data-stok="{{ $item->sisa_stok }}">
                                                 {{ $item->nama_barang }} (Sisa Stok: {{ $item->sisa_stok }} {{ $item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs') }})
                                             </option>
@@ -193,15 +193,18 @@ document.addEventListener('DOMContentLoaded', function() {
     let barangCount = 1;
     
     // Data barang dari PHP
-    const barangData = {};
-    @foreach($barangMasuk as $item)
-        barangData[{{ $item->barang_id }}] = {
-            kode: '{!! addslashes($item->kode_barang) !!}',
-            nama: '{!! addslashes($item->nama_barang) !!}',
-            satuan: '{!! addslashes($item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs')) !!}',
-            stok: {{ $item->sisa_stok }}
-        };
-    @endforeach
+    @php
+        $barangDataMap = [];
+        foreach($barangMasuk as $item) {
+            $barangDataMap[$item->barang_id] = [
+                'kode' => $item->kode_barang,
+                'nama' => $item->nama_barang,
+                'satuan' => $item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs'),
+                'stok' => $item->sisa_stok
+            ];
+        }
+    @endphp
+    const barangData = @json($barangDataMap);
     
     // Fungsi untuk memilih barang
     window.pilihBarang = function(selectElement) {
@@ -233,10 +236,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const newRow = document.createElement('tr');
         newRow.className = 'border-b border-gray-300';
         
-        let options = '<option value="">-- Pilih Barang --</option>';
-        @foreach($barangMasuk as $item)
-            options += `<option value="{{ $item->barang_id }}" data-kode="{!! addslashes($item->kode_barang) !!}" data-nama="{!! addslashes($item->nama_barang) !!}" data-satuan="{!! addslashes($item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs')) !!}" data-stok="{{ $item->sisa_stok }}">{{ $item->nama_barang }} (Sisa Stok: {{ $item->sisa_stok }} {{ $item->satuan_nama ?? ($item->barang->satuan->name ?? 'pcs') }})</option>`;
-        @endforeach
+        // Use the existing options to prevent rendering issues
+        const selectHTML = document.querySelector('.pilih-barang').innerHTML;
         
         newRow.innerHTML = `
             <td class="text-center p-3 border-r border-gray-300">${barangCount}</td>
@@ -244,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <select class="pilih-barang w-full px-2 py-1 border border-gray-300 rounded text-sm"
                         name="barang[${barangCount-1}][barang_id]"
                         required>
-                    ${options}
+                    ${selectHTML}
                 </select>
                 <input type="hidden" name="barang[${barangCount-1}][kode]" class="kode-barang">
                 <input type="hidden" name="barang[${barangCount-1}][nama]" class="nama-barang">

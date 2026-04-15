@@ -1,4 +1,4 @@
-<nav class="navbar text-white shadow-lg">
+<nav class="navbar text-white shadow-lg sticky top-0 z-50">
     <div class="px-6 py-4">
         <div class="flex items-center justify-between">
             <!-- Logo & Brand -->
