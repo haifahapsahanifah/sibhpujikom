@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide SIBHP</title>
+    <style>
+        /* Standar Dokumen Laporan (Menggunakan Times New Roman sesuai standar penulisan) */
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+            margin: 0 auto;
+            max-width: 21cm; /* Ukuran A4 */
+            padding: 2cm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Efek kertas di browser */
+        }
+        @media print {
+            body { max-width: none; padding: 0; box-shadow: none; }
+            .page-break { page-break-before: always; }
+            .no-print { display: none; }
+        }
+        
+        /* Cover Page */
+        .cover {
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .cover h1 {
+            font-size: 28pt;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .cover h2 {
+            font-size: 18pt;
+            font-weight: normal;
+            margin-bottom: 50px;
+        }
+        .cover h3 {
+            font-size: 16pt;
+            margin-top: auto;
+            margin-bottom: 50px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: #000;
+        }
+        h2 { border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;}
+        h3 { margin-top: 25px; }
+        
+        p { margin-bottom: 15px; text-align: justify; }
+        ul, ol { margin-bottom: 15px; text-align: justify; }
+        li { margin-bottom: 8px; }
+        
+        /* Screenshot Boxes */
+        .screenshot-placeholder {
+            border: 2px dashed #999;
+            background-color: #f9f9f9;
+            color: #666;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .screenshot-placeholder i {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .instruction-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #007bb5;
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <div class="no-print instruction-box" style="margin-bottom: 30px;">
+        <strong>PENTING (Hanya tampil di Browser):</strong> Ini adalah draft Buku Panduan Penggunaan (N-8). 
+        Untuk menyelesaikannya, ikuti instruksi di kotak putus-putus untuk menempelkan Screenshot asli Anda. Bisa Anda edit file HTML ini menggunakan Text Editor untuk mengganti bagian kotak dengan tag gambar: <code>&lt;img src="nama-gambar.jpg" style="max-width:100%"&gt;</code>. Setelah selesai semua, tekan <kbd>Ctrl+P</kbd> lalu pilih <strong>Save as PDF</strong>!
+    </div>
+
+    <!-- COVER PAGE -->
+    <div class="cover">
+        <h1>User Guide Application</h1>
+        <h2>Sistem Informasi Barang Habis Pakai (SIBHP)</h2>
+        
+        <div class="screenshot-placeholder" style="width: 200px; height: 200px; padding: 20px; display: flex; flex-direction: column; justify-content: center; margin: 50px auto;">
+            <i>📷</i>
+            <span>[Ganti teks ini dengan Logo SIBHP/Logo Sekolah jika ada]</span>
+        </div>
+
+        <h3>Disusun Oleh:<br><br>[NAMA ANDA]<br>SMK ...</h3>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- DAFTAR ISI -->
+    <h2 style="text-align: center; border: none;">KATA PENGANTAR</h2>
+    <p>Puji syukur penulis panjatkan atas selesainya penyusunan dokumen "User Guide Application" atau Panduan Penggunaan Aplikasi untuk Sistem Informasi Barang Habis Pakai (SIBHP). Dokumen ini disusun untuk melengkapi kriteria penilaian <strong>N-8 (Membuat User Guide Application)</strong> dalam pelaksanaan Uji Kompetensi Keahlian (UKK).</p>
+    <p>Aplikasi SIBHP ini dirancang untuk memudahkan manajemen pendataan, pengajuan permintaan, hingga pelaporan barang stok di lingkungan instansi/perusahaan secara digital dan terstruktur. Tersedia dua hak akses utama dalam aplikasi ini, yaitu hak akses <strong>Admin Gudang</strong> dan hak akses <strong>Pegawai (User)</strong>.</p>
+    <p>Semoga panduan singkat ini dapat memberikan petunjuk yang jelas demi kelancaran operasional SIBHP.</p>
+    
+    <div class="page-break"></div>
+
+    <!-- BAB 1 -->
+    <h2>BAB I <br> PANDUAN PENGGUNA (PEGAWAI)</h2>
+    <p>Bagian ini menjelaskan langkah-langkah penggunaan aplikasi bagi peran Pegawai atau Staf biasa yang ingin melakukan permohonan pengambilan barang habis pakai.</p>
+
+    <h3>1.1. Login Pegawai</h3>
+    <p>Langkah pertama untuk menggunakan aplikasi adalah melakukan proses otentikasi (Login).</p>
+    <ol>
+        <li>Buka aplikasi SIBHP melalui browser.</li>
+        <li>Masukkan <strong>Email/Username</strong> dan <strong>Password</strong> akun pegawai Anda.</li>
+        <li>Klik tombol <strong>Masuk / Sign In</strong>. Jika berhasil, Anda akan diarahkan ke halaman Dashboard (Beranda).</li>
+    </ol>
+    
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN TAMPILAN AWAL / LOGIN DI SINI]</span>
+    </div>
+
+    <h3>1.2. Halaman Dashboard Pegawai</h3>
+    <p>Setelah melakukan login, pegawai akan disambut oleh halaman Dashboard. Halaman ini berisi informasi ringkas mengenai total jumlah barang yang pernah Anda minta, status persetujuan, dan akses pintas untuk membuat permintaan baru.</p>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN DASHBOARD SEBAGAI USER]</span>
+    </div>
+
+    <h3>1.3. Membuat Permintaan Barang Baru</h3>
+    <p>Prosedur inti dari sisi pengguna adalah mengajukan pengadaan/pengambilan barang kepada bagian gudang.</p>
+    <ol>
+        <li>Pilih menu <strong>Permintaan Barang</strong> -> <strong>Buat Permintaan Baru</strong>.</li>
+        <li>Isi form utama: Prioritas Permintaan (Biasa/Segera), Tanggal Dibutuhkan, Divisi, dan Catatan khusus bila ada.</li>
+        <li>Klik tombol <strong>Tambah Barang</strong>, lalu pilih barang apa saja yang ingin Anda ambil, beserta jumlah dan rincian keperluannya.</li>
+        <li>Jika tabel daftar barang yang Anda isi sudah benar, klik tombol <strong>Kirim Surat Permintaan</strong>.</li>
+    </ol>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN FORM INPUT PERMINTAAN BARU]</span>
+    </div>
+
+    <h3>1.4. Melihat Riwayat & Status Permintaan</h3>
+    <p>Pegawai dapat melacak sejauh mana permohonan mereka diproses oleh admin, dan juga memanfaatkan kotak pencarian (search) untuk menemukan nomor dokumen spesifik.</p>
+    <ol>
+        <li>Buka menu <strong>Permintaan Barang</strong> -> <strong>Riwayat Permintaan</strong>.</li>
+        <li>Anda akan melihat daftar surat yang pernah Anda buat beserta statusnya, seperti "Menunggu Admin", "Disetujui", "Ditolak", atau "Selesai".</li>
+        <li>Anda juga dapat mengetik kata kunci pada kotak pencarian untuk mencari dokumen tertentu.</li>
+        <li>Klik tombol aksi <strong>Detail</strong> (ikon mata) untuk melihat rincian barang apa saja yang disetujui beserta catatan dari Admin Gudang.</li>
+    </ol>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN TABEL RIWAYAT PERMINTAAN USER (yang menampilkan fitur search bar yang kita tambahkan tadi)]</span>
+    </div>
+
+
+    <div class="page-break"></div>
+
+    <!-- BAB 2 -->
+    <h2>BAB II <br> PANDUAN ADMINISTRATOR GUDANG</h2>
+    <p>Bagian ini dikhususkan bagi staf administrator gudang yang memiliki wewenang penuh dalam mengelola lalu lintas barang, transaksi, persetujuan, hingga pelaporan (Kartu Persediaan).</p>
+
+    <h3>2.1. Memproses Permintaan dari Pegawai</h3>
+    <p>Setiap surat permohonan yang diajukan oleh pegawai harus diproses (Disetujui atau Ditolak) oleh Admin.</p>
+    <ol>
+        <li>Login sebagai Admin, lalu buka menu <strong>Permintaan Barang</strong> -> <strong>Menunggu Persetujuan</strong>.</li>
+        <li>Klik tombol <strong>Proses Persetujuan</strong> pada daftar permintaan yang masuk.</li>
+        <li>Sebuah jendela <em>Pop-Up (Modal)</em> akan muncul. Admin dapat mengatur dan memodifikasi angka pada kolom <strong>Jumlah Disetujui</strong> (apabila barang tidak mencukupi, admin berhak menyetujui setengahnya saja). Berikan catatan jika perlu.</li>
+        <li>Jika ingin menolak sepenuhnya, klik tombol <strong>Tolak</strong> dan sertakan alasan tertulis.</li>
+    </ol>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN MENUNGGU PERSETUJUAN (beserta Pop Up Modal Persetujuannya)]</span>
+    </div>
+
+    <h3>2.2. Manajemen Master Barang</h3>
+    <p>Katalog inventaris dikelola terpusat di halaman ini.</p>
+    <ol>
+        <li>Akses menu <strong>Master Data</strong> -> <strong>Master Barang</strong>.</li>
+        <li>Di sinilah Admin dapat melakukan Tambah Barang Baru (Create), Edit Barang, maupun pengecekan saldo stok minimum.</li>
+        <li>Fitur <strong>Import Data</strong> juga tersedia di sini. Admin dapat mengunduh Template Excel, mendatanya secara *offline*, lalu mengunggah *file CSV*-nya kembali agar ribuan barang tersimpan massal secara otomatis.</li>
+    </ol>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN MASTER BARANG (Tampilkan juga jika ada form import file CSV-nya)]</span>
+    </div>
+
+    <h3>2.3. Transaksi Barang Masuk</h3>
+    <p>Apabila stok di gudang mulai menipis, pengadaan barang baru maupun logistik dari *Supplier* harus tercatat di sistem.</p>
+    <ol>
+        <li>Pilih Menu <strong>Transaksi</strong> -> <strong>Barang Masuk</strong>.</li>
+        <li>Klik <strong>Tambah Data</strong>, dan masukkan rincian Nomor Dokumen Surat Jalan/NUSP, Nama Supplier, lalu ketik nama atau kode barang pada *combo box* untuk memilih katalog barang.</li>
+        <li>Masukkan spesifikasi dan kuantitas barang masuk. Secara sistem, jumlah ini akan <strong>menambah stok akhir</strong> otomatis.</li>
+        <li>Pada halaman riwayat barang masuk, Anda pun dapat melakukan Filter Bulan/Tanggal dan <strong>Pencarian</strong> nomor surat sekaligus menggunakan satu tombol penelusuran.</li>
+    </ol>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN BARANG MASUK (Tabel riwayat dengan filter/search barna)]</span>
+    </div>
+
+    <h3>2.4. Pencetakan Kartu Persediaan Barang</h3>
+    <p>Kartu persediaan adalah hal krusial untuk kegiatan *stock opname* dan akuntansi logistik.</p>
+    <ol>
+        <li>Buka menu <strong>Laporan</strong> -> <strong>Kartu Persediaan</strong>.</li>
+        <li>Layar pertama akan menampilkan halaman Manajemen Barang untuk memantau stok total saat ini, total barang habis, dan stok menipis. Lengkap dengan kotak pencarian terpusat.</li>
+        <li>Untuk melihat Buku Besar Persediaan *(Stock Ledger)* dari 1 item, klik ikon <strong>(Riwayat)</strong> pada baris barang tersebut.</li>
+        <li>Layar "Riwayat Stok (Kartu Persediaan)" akan terbuka, menampilkan aliran debet-kredit jumlah barang yang bertambah dan berkurang berdasarkan tanggal transaksinya. Anda bisa menekan tombol **Cetak Laporan** (PDF) untuk di-print sebagai bukti fisik.</li>
+    </ol>
+
+    <div class="screenshot-placeholder">
+        <i>📷</i>
+        <span>[AMBIL SCREENSHOT HALAMAN MANAJEMEN BARANG & KARTU PERSEDIAAN (Boleh dua screenshot ditumpuk)]</span>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>PENUTUP</h2>
+    <p>Demikianlah Panduan Penggunaan Sistem Informasi Barang Habis Pakai (SIBHP) ini dibuat. SIBHP diharapkan mampu mengakomodir alur pergerakan barang mulai dari gudang masuk hingga didistribusikan ke masing-masing divisi agar tertata rapi secara administratif.</p>
+    <p>Seluruh fitur mulai instalasi hingga operasi perancangan tampilan di atas telah mengikuti prinsip logika rekayasa perangkat lunak.</p>
+
+</body>
+</html>
